@@ -84,8 +84,7 @@ go run main.go
 ## 5. Тестирование API
 
 Вы можете протестировать API с помощью Swagger UI (```http://localhost:8080/swagger/index.html```) или Postman.
-1. Получение списка песен с фильтрацией и пагинацией
-Запрос:
+1. Получение списка песен с фильтрацией и пагинацией.
 ```http
 GET /api/v1/songs?group=Muse&song=Supermassive%20Black%20Hole&limit=10&offset=0
 ```
@@ -109,7 +108,6 @@ GET /api/v1/songs?group=Muse&song=Supermassive%20Black%20Hole&limit=10&offset=0
 ```
 
 2. Добавление новой песни
-Запрос:
 ```http
 POST /api/v1/songs
 Content-Type: application/json
@@ -135,7 +133,6 @@ Content-Type: application/json
 ```
 
 3. Обновление данных песни
-Запрос:
 ```http
 PUT /api/v1/songs/1
 Content-Type: application/json
@@ -164,7 +161,6 @@ Content-Type: application/json
 ```
 
 4. Удаление песни
-Запрос:
 ```http
 DELETE /api/v1/songs/1
 ```
@@ -183,7 +179,6 @@ DELETE /api/v1/songs/1
 
 
 5. Получение текста песни с пагинацией по куплетам
-Запрос:
 ```http
 GET /api/v1/songs/1/verses?limit=1&offset=0
 ```
