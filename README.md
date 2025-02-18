@@ -42,7 +42,7 @@ cd SongLibraryApi
 
 ```bash
 swag init --parseDependency --parseInternal
-
+```
 
 ## 2. Настройка переменных окружения
 Создайте файл .env на основе .env.example:
