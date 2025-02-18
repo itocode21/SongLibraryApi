@@ -1,0 +1,55 @@
+# Переменные окружения
+APP_NAME=SongLibraryApi
+DB_NAME=music_library
+DB_USER=postgres
+DB_PASSWORD=secret
+
+# Запуск приложения
+run:
+    @echo "Запуск приложения..."
+    go run main.go
+
+# Сборка исполняемого файла
+build:
+    @echo "Сборка приложения..."
+    go build -o $(APP_NAME) main.go
+
+# Запуск тестов
+test:
+    @echo "Запуск тестов..."
+    go test ./... -v
+
+# Генерация документации Swagger
+swagger:
+    @echo "Генерация документации Swagger..."
+    swag init
+
+# Форматирование кода
+fmt:
+    @echo "Форматирование кода..."
+    go fmt ./...
+
+# Очистка временных файлов
+clean:
+    @echo "Очистка временных файлов..."
+    rm -f $(APP_NAME)
+    rm -rf log/*
+
+# Создание миграций
+migrate-up:
+    @echo "Применение миграций..."
+    migrate -database "postgres://$(DB_USER):$(DB_PASSWORD)@localhost:5432/$(DB_NAME)?sslmode=disable" -path migrations up
+
+migrate-down:
+    @echo "Откат миграций..."
+    migrate -database "postgres://$(DB_USER):$(DB_PASSWORD)@localhost:5432/$(DB_NAME)?sslmode=disable" -path migrations down
+
+# Проверка зависимостей
+mod-tidy:
+    @echo "Обновление модулей Go..."
+    go mod tidy
+
+# Запуск приложения в production режиме
+release:
+    @echo "Запуск приложения в production режиме..."
+    GIN_MODE=release go run main.go

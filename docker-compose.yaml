@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD=secret
+      - DB_NAME=music_library
+      - LOG_LEVEL=info
+    depends_on:
+      - db
+    volumes:
+      - ./.env:/app/.env
+      - ./log:/app/log
+    command: ["./SongLibraryApi"]
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: music_library
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
+  log:
