@@ -84,7 +84,7 @@ go run main.go
 ## 5. Тестирование API
 
 Вы можете протестировать API с помощью Swagger UI (```http://localhost:8080/swagger/index.html```) или Postman.
-1. Получение списка песен с фильтрацией и пагинацией.
+# 1. Получение списка песен с фильтрацией и пагинацией.
 ```http
 GET /api/v1/songs?group=Muse&song=Supermassive%20Black%20Hole&limit=10&offset=0
 ```
@@ -107,7 +107,7 @@ GET /api/v1/songs?group=Muse&song=Supermassive%20Black%20Hole&limit=10&offset=0
 ]
 ```
 
-2. Добавление новой песни
+# 2. Добавление новой песни
 ```http
 POST /api/v1/songs
 Content-Type: application/json
@@ -132,7 +132,7 @@ Content-Type: application/json
 }
 ```
 
-3. Обновление данных песни
+# 3. Обновление данных песни
 ```http
 PUT /api/v1/songs/1
 Content-Type: application/json
@@ -160,7 +160,7 @@ Content-Type: application/json
 }
 ```
 
-4. Удаление песни
+# 4. Удаление песни
 ```http
 DELETE /api/v1/songs/1
 ```
@@ -178,7 +178,7 @@ DELETE /api/v1/songs/1
 ```
 
 
-5. Получение текста песни с пагинацией по куплетам
+# 5. Получение текста песни с пагинацией по куплетам
 ```http
 GET /api/v1/songs/1/verses?limit=1&offset=0
 ```
@@ -205,7 +205,7 @@ GET /api/v1/songs/1/verses?limit=1&offset=0
   "error": "Song not found"
 }
 ```
-6. Интеграция с внешним API
+# 6. Интеграция с внешним API
 При добавлении новой песни выполняется запрос к внешнему API для получения 
 дополнительной информации о песне. Например:
 Запрос к внешнему API:
@@ -220,7 +220,7 @@ GET /info?group=Muse&song=Supermassive%20Black%20Hole
   "link": "https://www.youtube.com/watch?v=Xsp3_a-PMTw"
 }
 ```
-7. Ошибки
+# 7. Ошибки
 Если что-то пошло не так, API возвращает соответствующие HTTP-статусы и сообщения об ошибках. 
 Примеры:
 Неверный формат данных:
